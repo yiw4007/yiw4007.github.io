@@ -12,13 +12,13 @@ github_username: yiw4007
 
 # Email and twitter are optional:
 email: yiw4007@gmail.com
-twitter_username:@wyzoxacid9477
+twitter_username: @wyzoxacid9477
 
 # Set this to true to get LaTeX math equation support
-use_math:
+use_math: none
 
 # Add your Google Analytics ID here if you have one and want to use it
-google_analytics:
+google_analytics: none
 
 # Everything below here can be ignored, unless you want to change the theme entirely
 theme: minima

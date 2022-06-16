@@ -1,4 +1,4 @@
-<front size=5>**Recording daily life about how epigenetic things change my life.**</fron>
+<front size=7>**Recording daily life about how epigenetic things change my life.**</font>
 
 <img src="images/logo.png" alt="Image of fast.ai logo" style="zoom:80%;" />
 

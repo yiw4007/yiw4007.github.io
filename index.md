@@ -1,5 +1,3 @@
-# Recording the daily life working on how epigenetic changes influence out life.
-
 ![Image of fast.ai logo](images/logo.png)
 
 ## Guide & Overview

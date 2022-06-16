@@ -1,6 +1,6 @@
 
 
-#  linux basic part 1
+# linux基础 ----背景知识、快捷键、正则表达式
 
 [生信技能树-linux基础课程及conda精讲](https://www.bilibili.com/video/BV1Yy4y117SX?p=1&vd_source=60b68aa1f5472a5d937a802533f649ab)
 
@@ -103,9 +103,7 @@ ifconfig
 
 + 其他服务器配置[Ref](weixin://resourceid/blank)
 
---------------
 
-> 正则表达式、常用通配符、常用命令
 
 ## linux快捷键 (Linux Bash Terminal Keyboard Shortcuts)
 
@@ -166,8 +164,9 @@ A Regular Expression contains one or more of the following:
 | plus                                    | +         | one or more of the previous RE                               | 匹配符号前1次或多次                            | grep ’fre\\+‘                   |
 | vertical bar                            | \|        | matches any of a set of alternate characters.                | 或                                             | ’re(a\|e)d‘         'UTR\|exon' |
 | parentheses            (round brackets) | ()        | enclose a group of REs                                       | 强调整体，常与\|连用                           |                                 |
-| brace                (curly brackets)   | {}        |                                                              |                                                |                                 |
-|                                         |           |                                                              |                                                |                                 |
+| brace                (curly brackets)   | {n}       | match how many times                                         | 匹配n次                                        | grep 'fre\\{2\\}'               |
+|                                         | {n,}      | match at least how many times                                | 匹配至少n次                                    |                                 |
+|                                         | {n,m}     | match times at a range                                       | 匹配至少n次至多m次                             |                                 |
 
 
 

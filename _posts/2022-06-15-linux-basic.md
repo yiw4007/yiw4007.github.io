@@ -1,6 +1,6 @@
 
 
-# linux基础 ----学习记录
+#  linux basic part 1
 
 [生信技能树-linux基础课程及conda精讲](https://www.bilibili.com/video/BV1Yy4y117SX?p=1&vd_source=60b68aa1f5472a5d937a802533f649ab)
 

@@ -1,4 +1,6 @@
-![Image of fast.ai logo](images/logo.png)
+#### Recording daily life about how epigenetic things change my life.
+
+<img src="images/logo.png" alt="Image of fast.ai logo" style="zoom:80%;" />
 
 ## Guide & Overview
 

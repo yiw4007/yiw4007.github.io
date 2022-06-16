@@ -1,12 +1,12 @@
-<font size=3>**Recording daily life about how epigenetic things change my life.**</font>
+<b><font size=3>Recording daily life about how epigenetic things change my life.</font></b>
 
 <img src="images/logo.png" alt="Image of fast.ai logo" style="zoom:80%;" />
 
+-----------------------
 
 
-# Guide & Overview
 
-
+### Guide & Overview
 
 | Bioinformatics                                               | Content                            | Wet Experiment | Content |
 | ------------------------------------------------------------ | ---------------------------------- | -------------- | ------- |

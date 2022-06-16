@@ -1,7 +1,12 @@
-Hello and welcome to this blog. Edit the `index.md` file to change this content. All pages on the blog, including this one, use [Markdown](https://guides.github.com/features/mastering-markdown/). You can include images:
+Recording the daily life working on how epigenetic changes influence out life.
 
 ![Image of fast.ai logo](images/logo.png)
 
-## This is a title
+> [Mattia Zaghi, et al. Front Genet. 2020 Jan 9](https://pubmed.ncbi.nlm.nih.gov/31998360/)
 
-And you can include links, like this [link to fast.ai](https://www.fast.ai). Posts will appear after this file. 
+## Guide & Overview
+
+2022.6.15 [linux basic part 1](https://yiw4007.github.io/2022/06/15/linux-_basic.html)
+
+
+

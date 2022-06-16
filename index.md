@@ -2,7 +2,9 @@
 
 <img src="images/logo.png" alt="Image of fast.ai logo" style="zoom:80%;" />
 
-## Guide & Overview
+
+
+# Guide & Overview
 
 
 

@@ -1,6 +1,6 @@
 
 
-# linux基础 ----背景知识、快捷键、正则表达式
+# linux基础 ----学习记录
 
 [生信技能树-linux基础课程及conda精讲](https://www.bilibili.com/video/BV1Yy4y117SX?p=1&vd_source=60b68aa1f5472a5d937a802533f649ab)
 
@@ -47,8 +47,6 @@ sudo apt-get install net-tools  #为了可以运行ifconfig命令
 ifconfig           
 ```
 
-
-
 ----------------------
 
 ## 新服务器配置
@@ -65,7 +63,9 @@ ifconfig
   ```shell
   #使用free命令查看内存(show total,used memory,free,shared,available memory)
   free -g
-  #查看存储系统信息的文件
+  #查看内存信息
+  cat /proc/meminfo
+  #查看处理器信息的文件
   cat /proc/cpuinfo 
   #查看CPU物理个数
   grep ‘physical id’ /proc/cpuinfo | sort -u | wc -l
@@ -75,19 +75,22 @@ ifconfig
   cat /proc/cpuinfo | grep processor|wc
   grep ‘processor’ /proc/cpuinfo | sort -u | wc -l
   ```
-  
-  小知识：CPU核心数（core）、线程数（processor/thread）的区别
 
+  小知识：CPU核心数（core）、线程数（processor/thread）的区别
+  
   CPU的核心数指的是硬件上存在着几个核心，而线程数可以模拟出多个核心数的功能。线程数越多，越有利于同时运行多个程序，因为线程数等同于在某个瞬间CPU能同时并行处理的任务数。一个核心最少对应一个线程，但通过超线程技术，一个核心可以对应两个线程，也就是说它可以同时运行两个线程。
   
   所以买电脑的时候所谓性能好，其中条件之一就是要么有多个高级的（可以同时处理更多事情的）CPU核心
   
   ```shell
-  #查看内存 df命令(df = disk free)
+  #查看磁盘空间 df命令(df = disk free)
   df -h                   #/根目录下的内存对应的是总内存
   #查看服务器硬盘信息
   cat /proc/scsi/scsi
   #如果有高级权限的话可以用sudo fdisk分区挂载等等，mount指挂载的位置
+  #查询执行中的工作
+  top 
+  q #离开
   ```
   
   具体服务器运维管理参考[Ref](https://mp.weixin.qq.com/s/siHnqPQq1in0WK2J2TnAhg), 然而我不配。
@@ -103,7 +106,7 @@ ifconfig
 
 + 其他服务器配置[Ref](weixin://resourceid/blank)
 
-
+-------------------
 
 ## linux快捷键 (Linux Bash Terminal Keyboard Shortcuts)
 
@@ -132,11 +135,10 @@ ifconfig
 | Ctrl + \           | Remove all the blanks before the cursor                      | 删除光标前所有字符       |
 | Shift + Insert     | Paste (equals to Crtl+V in windows)                          | 粘贴                     |
 
-命令行窗口中选中即复制，右键粘贴，鼠标滚轮向下按就会出现下拉菜单（像Windows中的右键一样） 
++ 命令行窗口中选中即复制，右键粘贴，鼠标滚轮向下按就会出现下拉菜单（像Windows中的右键一样） 如果不是的话可以在X shell或者系统中设置一下
++ 双击选中当前单词，三击选中当前行
 
-如果不是的话可以在X shell或者系统中设置一下
-
-
+-----------------------------------
 
 ## 正则表达式 (Regular Expression, regex/ regexp/ RE)
 
@@ -148,36 +150,31 @@ A Regular Expression contains one or more of the following:
 - ***An anchor***. These designate (*anchor*) the position in the line of text that the RE is to match. For example, ^, and $ are anchors.
 - ***Modifiers***. These expand or narrow (*modify*) the range of text the RE is to match. Modifiers include the asterisk, brackets, and the backslash.
 
-| Expression                              | Symbol    | Meaning                                                      |                                                | Example                         |
-| --------------------------------------- | --------- | ------------------------------------------------------------ | ---------------------------------------------- | ------------------------------- |
-| asterisk                                | *         | any number of repeats of the character string or RE preceding it, including *zero* instances. | 匹配0次或多次符号前的内容                      | grep 'f*ee'                     |
-| dot                                     | .         | matches any one character, except a newline.                 | 换行符以外的任意单个字符                       | grep 'f.ee'                     |
-| caret                                   | ^         | matches the **beginning of a line**, but sometimes, depending on context, **negates** the meaning of a set of characters | 行首，在特定情况下也表示否定或除了             | grep '^T' or grep \[^Tt]        |
-| dollar sign                             | $         | at the end of an RE matches the end of a line                | 行尾                                           | grep 'ee$'                      |
-| brackets       (square brackets)        | []        | enclose a set of characters to match in a single RE          | 匹配任意一个字符                               | grep [xyz]                      |
-|                                         |           | matches any one of the characters in the range               | 匹配范围内任意一个                             | [c-n] or        [B-Pk-y]        |
-|                                         |           | matches any single lowercase letter or any digit             | 匹配任意小写字母和数字                         | [a-z0-9]                        |
-|                                         |           | matches any character *except* those in the range            | 匹配除了这些字符以外的内容                     | \[^b-d]                         |
-| backslash                               | \         | [escapes](https://tldp.org/LDP/abs/html/escapingsection.html#ESCP) a special character, which means that character gets interpreted literally (and is therefore no longer *special*). | 转译，至于从什么转成什么那就具体情况具体分析了 | ‘My\ data'                      |
-| escaped angle bracket     (chevron)     | \\<...\\> | word boundaries. "\<the\>" matches the word "the," but not the words "them," "there," "other," etc. | 作为一个整体                                   | grep '\\<the\\>' textfile       |
-| question mark                           | ?         | zero or one of the previous RE                               | 匹配符号前0次或1次                             | grep ’f\?ee‘                    |
-| plus                                    | +         | one or more of the previous RE                               | 匹配符号前1次或多次                            | grep ’fre\\+‘                   |
-| vertical bar                            | \|        | matches any of a set of alternate characters.                | 或                                             | ’re(a\|e)d‘         'UTR\|exon' |
-| parentheses            (round brackets) | ()        | enclose a group of REs                                       | 强调整体，常与\|连用                           |                                 |
-| brace                (curly brackets)   | {n}       | match how many times                                         | 匹配n次                                        | grep 'fre\\{2\\}'               |
-|                                         | {n,}      | match at least how many times                                | 匹配至少n次                                    |                                 |
-|                                         | {n,m}     | match times at a range                                       | 匹配至少n次至多m次                             |                                 |
+| Expression                              | Symbol    | Meaning                                                      |                                                | Example                                   |
+| --------------------------------------- | --------- | ------------------------------------------------------------ | ---------------------------------------------- | ----------------------------------------- |
+| asterisk                                | *         | any number of repeats of the character string or RE preceding it, including *zero* instances. | 匹配0次或多次符号前的内容                      | grep 'f*ee'                               |
+| dot                                     | .         | matches any one character, except a newline.                 | 换行符以外的任意单个字符                       | grep 'f.ee'                               |
+| caret                                   | ^         | matches the **beginning of a line**, but sometimes, depending on context, **negates** the meaning of a set of characters | 行首，在特定情况下也表示否定或除了             | grep '^T' or grep \[^Tt]                  |
+| dollar sign                             | $         | at the end of an RE matches the end of a line                | 行尾                                           | grep 'ee$'                                |
+| brackets       (square brackets)        | []        | enclose a set of characters to match in a single RE          | 匹配任意一个字符                               | grep [xyz]                                |
+|                                         |           | matches any one of the characters in the range               | 匹配范围内任意一个                             | [c-n] or        [B-Pk-y]                  |
+|                                         |           | matches any single lowercase letter or any digit             | 匹配任意小写字母和数字                         | [a-z0-9]                                  |
+|                                         |           | matches any character *except* those in the range            | 匹配除了这些字符以外的内容                     | \[^b-d]                                   |
+| backslash                               | \         | [escapes](https://tldp.org/LDP/abs/html/escapingsection.html#ESCP) a special character, which means that character gets interpreted literally (and is therefore no longer *special*). | 转译，至于从什么转成什么那就具体情况具体分析了 | ‘My\ data'                                |
+| escaped angle bracket     (chevron)     | \\<...\\> | word boundaries. "\<the\>" matches the word "the," but not the words "them," "there," "other," etc. | 作为一个整体                                   | grep '\\<the\\>' textfile                 |
+| question mark                           | ?         | zero or one of the previous RE                               | 匹配符号前0次或1次                             | grep ’f\?ee‘                              |
+| plus                                    | +         | one or more of the previous RE                               | 匹配符号前1次或多次                            | grep ’fre\\+‘                             |
+| vertical bar                            | \|        | matches any of a set of alternate characters.                | 或                                             | ’re(a\|e)d‘         'UTR\|exon'           |
+| parentheses            (round brackets) | ()        | enclose a group of REs                                       | 强调整体，常与\|连用                           |                                           |
+| brace                (curly brackets)   | {n}       | match how many times                                         | 匹配n次                                        | grep 'fre\\{2\\}'                         |
+|                                         | {n,}      | match at least how many times                                | 匹配至少n次                                    |                                           |
+|                                         | {n,m}     | match times at a range                                       | 匹配至少n次至多m次                             |                                           |
+| angle bracket                           | >         | write into a file                                            | 写入一个文件，通常跟cat，echo等命令，^C退出    | cat > file.txt<br>echo "hello" > file.txt |
 
 
 
 个人觉得英文解释比中文更好理解，更符合语言习惯，但为了看着方便还是把中文加上。这里需要说明的是RE中指代的都是符号前的内容（也就是RE preceding it）。
 
 不过说个题外话，linux，shell，bash都是常见的我们会提及的概念，但真正理解他们还是在实际操作中才会明白。名词解释这种东西考试考它还是有一定道理的。
-
-------------------------
-
-## 待整理: CUT&RUN 流程化分析
-
- 
 
 [^1]: code一定要注意大小写

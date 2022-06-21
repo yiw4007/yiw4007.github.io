@@ -15,6 +15,7 @@
 | 2022.6.17 |                                                              | [NSD2/3](https://yiw4007.github.io/2022/06/17/Exp.html) |
 | 2022.6.19 | [linux basic 2](https://yiw4007.github.io/2022/06/19/linux-command.html) | [NSD2/3](https://yiw4007.github.io/2022/06/19/Exp.html) |
 | 2022.6.20 |                                                              | [SMC5](https://yiw4007.github.io/2022/06/20/Exp.html)   |
+| 2022.6.21 |                                                              | [Reader](https://yiw4007.github.io/2022/06/21/Exp.html) |
 
 
 

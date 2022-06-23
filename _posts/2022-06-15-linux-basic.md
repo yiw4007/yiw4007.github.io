@@ -1,6 +1,6 @@
 
 
-# linux基础 ----背景知识
+# linux基础 ----学习记录
 
 [生信技能树-linux基础课程及conda精讲](https://www.bilibili.com/video/BV1Yy4y117SX?p=1&vd_source=60b68aa1f5472a5d937a802533f649ab)
 
@@ -171,7 +171,16 @@ A Regular Expression contains one or more of the following:
 |                                         | {n,m}     | match times at a range                                       | 匹配至少n次至多m次                             |                                           |
 | angle bracket                           | >         | write into a file                                            | 写入一个文件，通常跟cat，echo等命令，^C退出    | cat > file.txt<br>echo "hello" > file.txt |
 
+`[:`这个符号可以用来表示一类字符
 
+| Class     | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| [:alnum:] | Alphanumeric characters                                      |
+| [:alpha:] | Alphabetic characters                                        |
+| [:blank:] | Blank characters: space and tab                              |
+| [:digit:] | Digits: ‘0 1 2 3 4 5 6 7 8 9’                                |
+| [:lower:] | Lower-case letters                                           |
+| [:space:] | Space characters: tab, newline, vertical tab, form feed, carriage return, and space |
 
 个人觉得英文解释比中文更好理解，更符合语言习惯，但为了看着方便还是把中文加上。这里需要说明的是RE中指代的都是符号前的内容（也就是RE preceding it）。
 

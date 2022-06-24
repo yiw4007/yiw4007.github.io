@@ -18,6 +18,7 @@
 | 2022.6.21 |                                                              | [Reader](https://yiw4007.github.io/2022/06/21/Exp.html)      |
 | 2022.6.22 | [linux basic 2](https://yiw4007.github.io/2022/06/22/linux-command.html) | [K36M/R](https://yiw4007.github.io/2022/06/22/Exp.html)      |
 | 2022.6.23 | [linux basic 3](https://yiw4007.github.io/2022/06/23/linux-environment.html) | [Reader plasmid](https://yiw4007.github.io/2022/06/23/Exp.html) |
+| 2022.6.24 |                                                              | [Reader lentiV2](https://yiw4007.github.io/2022/06/24/Exp.html) |
 
 
 
